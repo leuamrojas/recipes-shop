@@ -12,7 +12,7 @@ export class ShoppingListService {
   ];
 
   getIngredients() {
-    return this.ingredients.slice();
+    return this.ingredients.slice(); // return a copy so it can't access the original array stored in the service
   }
 
   getIngredient(index: number) {
