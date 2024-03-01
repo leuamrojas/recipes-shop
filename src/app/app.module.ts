@@ -23,7 +23,7 @@ import { AuthModule } from './auth/auth.module';
     RecipesModule,
     ShoppingListModule,
     AuthModule,
-    SharedModule,
+    SharedModule, //we need access to the DropdownDirective from the HeaderComponent declared here in AppModule
     CoreModule
   ],
   bootstrap: [AppComponent]

@@ -12,6 +12,8 @@ export class AuthInterceptorService implements HttpInterceptor {
     return this.authService.user.pipe(
       take(1),
       exhaustMap(user => {
+        // We only try to add the token if we have a user 
+        // For Login or Sign up the user will be null (as initialized in the user BehaviorSubject)
         if (!user) {
           return next.handle(req);
         }

@@ -14,7 +14,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild([
+    RouterModule.forChild([ // don't need to export the Router. That's only when you have a separate rounting module (e.g recipes-routing.module)
       { path: 'shopping-list', component: ShoppingListComponent },
     ]),
     SharedModule

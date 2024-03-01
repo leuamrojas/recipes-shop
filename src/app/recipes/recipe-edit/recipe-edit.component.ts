@@ -35,11 +35,13 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onSubmit() {
+    //Not required since the value of our form has exactly the format of our Recipe model (and same names)
     // const newRecipe = new Recipe(
     //   this.recipeForm.value['name'],
     //   this.recipeForm.value['description'],
     //   this.recipeForm.value['imagePath'],
     //   this.recipeForm.value['ingredients']);
+
     if (this.editMode) {
       this.recipeService.updateRecipe(this.id, this.recipeForm.value);
     } else {
@@ -65,6 +67,9 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onCancel() {
+    // The new route is based on how routes are configured in recipse-routing.module.ts:
+    // If I'm on recipe-edit (edit mode), it will take me back to recipe-detail (RecipeDetailComponent child)
+    // If I'm on recipe-edit (add mode), it will take me back to recipes start (RecipeStartComponent child)
     this.router.navigate(['../'], {relativeTo: this.route});
   }
 
