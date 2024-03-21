@@ -16,8 +16,19 @@ export class AuthGuard implements CanActivate {
             take(1),
             map(user => {
                 const isAuth = !!user;
-                return isAuth ? true : this.router.createUrlTree(['/auth']);                 
+                return isAuth ? true : this.router.createUrlTree(['/auth']);  // [1]               
             })
         )
+
+        // Mosh Hamedani Course - Check video Angular Part 1 - 9:45:00
+        // After logging in, return the user to the url he tried to navigate to:
+        // (This could replace the false condition in [1])
+        // this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } })
+        // return false;
+        // Then in the login component, after successful login:
+        // let returnUrl = this.route.snapshot.queryParams.get('returnUrl);
+        // this.router.navigate([returnUrl || '/']);
+
+        // 
     }
 }
